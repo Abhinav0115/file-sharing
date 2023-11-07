@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import router from "./routes/routes.js";
 
 import cors from "cors";
-
 import connectDB from "./db/database.js";
 
 dotenv.config();
@@ -19,6 +18,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 connectDB();
 
+app.use(express.json());
 app.use("/", router);
 
 app.get("/", (req, res) => {

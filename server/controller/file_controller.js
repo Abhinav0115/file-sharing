@@ -30,7 +30,7 @@ export const uploadData = async (req, res) => {
         const file = await File.create(fileObj);
         // console.log("file -->", file);
         res.status(200).json({
-            path: `http://localhost:${process.env.PORT}/file/${file._id}`,
+            path: `https://file-sharing-app-server-mplp.onrender.com/file/${file._id}`,
         });
     } catch (error) {
         console.error(error.message);
