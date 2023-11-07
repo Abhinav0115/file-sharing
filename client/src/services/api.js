@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";  //TODO: Move to .env || replace with backend url
+const API_URL = "https://file-sharing-app-server-mplp.onrender.com";
 
 export const uploadFile = async (data) => {
     try {
