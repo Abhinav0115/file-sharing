@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 const corsOptions = {
-    origin: "http://localhost:3000", //TODO: frontend URI (ReactJS) || chnage it
+    origin: "https://file-sharing-app-su3e.onrender.com",
 };
 
 app.use(cors(corsOptions));
