@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
-let isConected = false;
 const connectDB = async () => {
-    mongoose.set("strictQuery", true);
-    if (isConected) {
-        console.log("Database already connected");
-        return;
-    }
+    // mongoose.set("strictQuery", true);
 
     try {
         await mongoose.connect(process.env.MONGO_URI, {
             dbName: "file_sharing",
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
         });
-        isConected = true;
         console.log("Database Connected");
     } catch (error) {
         console.log(error.messgae);
