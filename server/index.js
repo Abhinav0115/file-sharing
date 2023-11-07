@@ -17,11 +17,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use(express.json());
+connectDB();
 
 app.use("/", router);
-
-connectDB();
 
 app.get("/", (req, res) => {
     res.send("Backend Running...");
