@@ -13,12 +13,14 @@ const PORT = process.env.PORT || 5001;
 
 const corsOptions = {
     origin: "https://file-sharing-app-su3e.onrender.com",
+    // origin: "https://localhost:3000",  //dev mode
 };
 
 app.use(cors(corsOptions));
+// app.use(cors());    //dev mode
 connectDB();
 
-app.use(express.json());
+// app.use(express.json());
 app.use("/", router);
 
 app.get("/", (req, res) => {
