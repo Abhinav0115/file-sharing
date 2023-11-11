@@ -11,16 +11,23 @@ const app = express();
 
 const PORT = process.env.PORT || 5001;
 
+const allowedOrigins = [
+    "https://file-sharing-app-su3e.onrender.com", //render hosted
+    "https://file-sharing-henna.vercel.app/", //vercel hosted
+    "http://localhost:3000", //localhost
+];
+
 const corsOptions = {
-    origin: [
-        "https://file-sharing-app-su3e.onrender.com", //render hosted
-        "https://file-sharing-henna.vercel.app/", //vercel hosted
-        "http://localhost:3000", //localhost
-    ],
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
 };
 
 app.use(cors(corsOptions));
-// app.use(cors()); //dev mode
 connectDB();
 
 // app.use(express.json());
