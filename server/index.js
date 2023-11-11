@@ -13,7 +13,10 @@ const PORT = process.env.PORT || 5001;
 
 const allowedOrigins = [
     "https://file-sharing-app-su3e.onrender.com", //render hosted
-    "https://file-sharing-henna.vercel.app/", //vercel hosted
+    "https://file-sharing-henna.vercel.app", //vercel hosted
+    "https://file-sharing-git-main-abhinavs-projects-082456e3.vercel.app", //vercel hosted
+    "https://file-sharing-qacu0iah8-abhinavs-projects-082456e3.vercel.app", //vercel hosted
+    "https://file-sharing-abhinavs-projects-082456e3.vercel.app", //vercel hosted
     "http://localhost:3000", //localhost
 ];
 
