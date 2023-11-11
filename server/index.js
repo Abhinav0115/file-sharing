@@ -12,8 +12,11 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 const corsOptions = {
-    origin: "https://file-sharing-app-su3e.onrender.com",
-    // origin: "https://localhost:3000", //dev mode
+    origin: [
+        "https://file-sharing-app-su3e.onrender.com", //render hosted
+        "https://file-sharing-henna.vercel.app/", //vercel hosted
+        "http://localhost:3000", //localhost
+    ],
 };
 
 app.use(cors(corsOptions));
