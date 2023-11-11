@@ -11,28 +11,28 @@ const app = express();
 
 const PORT = process.env.PORT || 5001;
 
-const allowedOrigins = [
-    "https://file-sharing-app-su3e.onrender.com", //render hosted
-    "https://file-sharing-henna.vercel.app", //vercel hosted
-    "https://file-sharing-git-main-abhinavs-projects-082456e3.vercel.app", //vercel hosted
-    "https://file-sharing-qacu0iah8-abhinavs-projects-082456e3.vercel.app", //vercel hosted
-    "https://file-sharing-abhinavs-projects-082456e3.vercel.app", //vercel hosted
-    "http://localhost:3000", //localhost
-];
+// const allowedOrigins = [
+//     "https://file-sharing-app-su3e.onrender.com", //render hosted
+//     "https://file-sharing-henna.vercel.app", //vercel hosted
+//     "https://file-sharing-git-main-abhinavs-projects-082456e3.vercel.app", //vercel hosted
+//     "https://file-sharing-qacu0iah8-abhinavs-projects-082456e3.vercel.app", //vercel hosted
+//     "https://file-sharing-abhinavs-projects-082456e3.vercel.app", //vercel hosted
+//     "http://localhost:3000", //localhost
+// ];
 
-var corsOptionsDelegate = function (req, callback) {
-    var corsOptions;
-    if (allowedOrigins.indexOf(req.header("Origin")) !== -1) {
-        corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-        console.log(`Origin is allowed`);
-    } else {
-        corsOptions = { origin: false }; // disable CORS for this request
-        console.log(`Origin is not allowed`);
-    }
-    callback(null, corsOptions); // callback expects two parameters: error and options
-};
+// var corsOptionsDelegate = function (req, callback) {
+//     var corsOptions;
+//     if (allowedOrigins.indexOf(req.header("Origin")) !== -1) {
+//         corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+//         console.log(`Origin is allowed`);
+//     } else {
+//         corsOptions = { origin: false }; // disable CORS for this request
+//         console.log(`Origin is not allowed`);
+//     }
+//     callback(null, corsOptions); // callback expects two parameters: error and options
+// };
 
-app.use(cors(corsOptionsDelegate));
+app.use(cors());
 // app.use(cors());
 connectDB();
 
