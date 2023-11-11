@@ -7,6 +7,7 @@ const Right = () => {
     const fileInputRef = useRef(null);
     const [file, setFile] = useState(null);
     const [resultPath, setResultPath] = useState("");
+    const [errorShip, setErrorShip] = useState("");
 
     //file size limit
     const [file_size_limit, setFile_size_limit] = useState(true);
@@ -21,9 +22,14 @@ const Right = () => {
                 data.append("file", file);
                 data.append("file_name", file.name);
                 if (file.size < max_size) {
-                    setFile_size_limit(true);
-                    let res = await uploadFile(data);
-                    setResultPath(res.path);
+                    try {
+                        setFile_size_limit(true);
+                        let res = await uploadFile(data);
+                        setResultPath(res.path);
+                    } catch (error) {
+                        setErrorShip(error.message);
+                        console.log(error);
+                    }
                 } else {
                     setFile_size_limit(false);
                 }
@@ -107,6 +113,15 @@ const Right = () => {
                             </span>
                         </p>
                     </div>
+
+                    {errorShip && (
+                        <div className="text-red-500 text-lg text-center">
+                            Error Occurred: CORS
+                            <p className="text-red-500 text-base">
+                                {errorShip}
+                            </p>
+                        </div>
+                    )}
                     {resultPath && (
                         <>
                             <div

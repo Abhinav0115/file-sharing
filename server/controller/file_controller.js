@@ -31,7 +31,7 @@ export const uploadData = async (req, res) => {
         // console.log("file -->", file);
         res.status(200).json({
             path: `https://file-sharing-app-server-mplp.onrender.com/file/${file._id}`,
-            // path: `https://localhost:${process.env.PORT}/file/${file._id}`, //Dev mode
+            // path: `http://localhost:${process.env.PORT}/file/${file._id}`, //Dev mode
         });
     } catch (error) {
         console.error(error.message);
