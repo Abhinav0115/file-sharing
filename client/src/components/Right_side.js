@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { AiOutlineCopy } from "react-icons/ai";
 import { uploadFile } from "../services/api";
 
-const max_size = 10 * 1024 * 1024;
+const max_size = 60 * 1024 * 1024;
 const Right = () => {
     const fileInputRef = useRef(null);
     const [file, setFile] = useState(null);
@@ -63,7 +63,7 @@ const Right = () => {
                 Upload and Share the Link{" "}
             </p>
             <p className="text-sm text-red-400 select-none">
-                (Max file size: 10Mb | Link expire after 7 Days)
+                (Max file size: 60Mb | Link expire after 7 Days)
             </p>
             <p className="text-sm text-gray-400"></p>
             <button
@@ -83,7 +83,7 @@ const Right = () => {
 
             {!file_size_limit && (
                 <p className="text-red-500 text-2xl mt-5">
-                    File size should be less than 10Mb
+                    File size should be less than 60Mb
                 </p>
             )}
 

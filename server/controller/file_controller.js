@@ -1,6 +1,6 @@
 import File from "../models/file_schema.js";
 
-const max_size = 1024 * 1024 * 10;
+const max_size = 60 * 1024 * 1024;
 
 export const uploadData = async (req, res) => {
     // console.log(req);
@@ -31,6 +31,7 @@ export const uploadData = async (req, res) => {
         // console.log("file -->", file);
         res.status(200).json({
             path: `https://file-sharing-app-server-mplp.onrender.com/file/${file._id}`,
+            // path: `https://localhost:${process.env.PORT}/file/${file._id}`, //Dev mode
         });
     } catch (error) {
         console.error(error.message);
