@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AiOutlineCopy } from "react-icons/ai";
 import { uploadFile } from "../services/api";
 import Loader from "./Loading";
