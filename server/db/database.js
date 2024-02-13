@@ -17,7 +17,7 @@ const connectDB = async () => {
         console.log(error.messgae);
         console.log("error with database connection");
         throw new Error(
-            "Please define the MONGO_URI environment variable inside .env"
+            "Please define the MONGODB_URI environment variable inside .env"
         );
     }
 };
