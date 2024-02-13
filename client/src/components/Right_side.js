@@ -62,9 +62,9 @@ const Right = () => {
 
     return (
         // <div className=" bg-white m-auto h-[350px] w-[600px] rounded flex justify-center items-center">
-        <section className=" bg-white  md:m-auto h-[50%] md:h-[23rem] w-[100vw] rounded flex flex-col items-center md:w-[600px] ">
+        <section className=" bg-white md:m-auto h-[50%] md:h-[23rem] w-[100vw] rounded-none md:rounded-lg flex flex-col items-center md:w-[600px] font-serif">
             <h1 className="text-4xl font-semibold mt-6 mb-4 text-indigo-700 select-none text-center">
-                File Sharing App!
+                Transfer Files
             </h1>
             <p className="text-xl text-gray-600 select-none">
                 Upload and Share the Link{" "}

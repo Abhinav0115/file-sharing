@@ -5,7 +5,7 @@ import Right from "./components/Right_side";
 
 function App() {
     return (
-        <div className="bg-black flex max-md:flex-col h-[100vh] w-[100vw] overflow-hidden">
+        <div className="bg-gradient-to-r from-slate-700 to-neutral-600 flex max-md:flex-col h-[100vh] w-[100vw] overflow-hidden object-cover">
             <Left />
             <Right />
         </div>
