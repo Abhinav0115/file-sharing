@@ -2,7 +2,7 @@ import React from "react";
 import HashLoader from "react-spinners/HashLoader";
 
 function Loader({ loading }) {
-    let color = "#606060";
+    let color = "#36d7b7";
 
     return (
         <div className="sweet-loading">

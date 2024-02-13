@@ -22,7 +22,7 @@ export const uploadData = async (req, res) => {
     if (file.size > max_size) {
         return res.status(400).json({
             success: false,
-            message: "File size should be less than 60MB",
+            message: "File size should be less than 10MB",
         });
     }
 

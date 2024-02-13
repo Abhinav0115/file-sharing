@@ -1,6 +1,5 @@
 import "./App.css";
 import Left from "./components/Left_Side";
-import React from "react";
 
 import Right from "./components/Right_side";
 

@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-// import React from "react";
-import { AiOutlineCopy } from "react-icons/ai";
+// import { AiOutlineCopy } from "react-icons/ai";
 import { uploadFile } from "../services/api";
+// import React from "react";
 import Loader from "./Loading";
+import { MdOutlineContentCopy } from "react-icons/md";
 
 const max_size = 60 * 1024 * 1024;
 const Right = () => {
@@ -10,13 +11,13 @@ const Right = () => {
     const [file, setFile] = useState(null);
     const [resultPath, setResultPath] = useState("");
     const [errorShip, setErrorShip] = useState("");
-    let [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     //file size limit
     const [file_size_limit, setFile_size_limit] = useState(true);
 
     //download || copy button
-    const [isHovering, setIsHovering] = useState(false);
+    // const [isHovering, setIsHovering] = useState(true);
 
     useEffect(() => {
         const getImage = async () => {
@@ -32,8 +33,9 @@ const Right = () => {
                     } catch (error) {
                         setErrorShip(error.message);
                         console.log(error);
+                    } finally {
+                        setLoading(false);
                     }
-                    setLoading(false);
                 } else {
                     setFile_size_limit(false);
                 }
@@ -43,6 +45,8 @@ const Right = () => {
     }, [file]);
 
     const handleButtonClick = () => {
+        setResultPath("");
+        setFile(null);
         fileInputRef.current.click();
     };
 
@@ -54,13 +58,6 @@ const Right = () => {
 
     const handleCopyButton = () => {
         navigator.clipboard.writeText(resultPath);
-    };
-    const handleMouseOver = () => {
-        setIsHovering(true);
-    };
-
-    const handleMouseOut = () => {
-        setIsHovering(false);
     };
 
     return (
@@ -126,31 +123,26 @@ const Right = () => {
                             </p>
                         </div>
                     )}
+
                     {loading && (
                         <div className="text-center mx-auto">
                             <Loader loading={loading} />
+                            {/* <div className="text-white bg-red-500">Hello</div> */}
                         </div>
                     )}
                     {!loading && resultPath && (
                         <>
-                            <div
-                                className="select-none text-gray-500 mx-auto cursor-pointer mb-2 w-full text-center"
-                                onMouseOver={handleMouseOver}
-                                onMouseOut={handleMouseOut}
-                            >
-                                {isHovering ? (
-                                    <div
-                                        className="flex justify-center text-orange-600 font-semibold px-20"
+                            {/* <div className="select-none text-gray-500 mb-2 w-full text-center"> */}
+                            <div>
+                                <p className="px-32 font-semibold mx-auto select-none">
+                                    Download Link:{" "}
+                                    <span
+                                        className="inline-flex text-orange-600  font-semibold ms-1  cursor-pointer "
                                         onClick={handleCopyButton}
                                     >
-                                        Copy Link{"  "}
-                                        <AiOutlineCopy className="mt-1" />
-                                    </div>
-                                ) : (
-                                    <p className="px-32 font-semibold">
-                                        Download Link:
-                                    </p>
-                                )}
+                                        <MdOutlineContentCopy className="mt-1 border-l" />
+                                    </span>
+                                </p>
                             </div>
                             <a
                                 className=" text-blue-500 font-semibold text-center break-all mx-3"
