@@ -133,16 +133,18 @@ const Right = () => {
                     {!loading && resultPath && (
                         <>
                             {/* <div className="select-none text-gray-500 mb-2 w-full text-center"> */}
-                            <div>
-                                <p className="px-32 font-semibold mx-auto select-none">
-                                    Download Link:{" "}
+                            <div className="">
+                                <div className="px-32 font-semibold mx-auto select-none flex flex-row mb-1 md:mb-2 ">
+                                    <span className="w-36 lg:w-auto">
+                                        Download Link:{" "}
+                                    </span>
                                     <span
-                                        className="inline-flex text-orange-600  font-semibold ms-1  cursor-pointer "
+                                        className=" text-orange-600 font-semibold md:ms-2 cursor-pointer "
                                         onClick={handleCopyButton}
                                     >
                                         <MdOutlineContentCopy className="mt-1 border-l" />
                                     </span>
-                                </p>
+                                </div>
                             </div>
                             <a
                                 className=" text-blue-500 font-semibold text-center break-all mx-3"
